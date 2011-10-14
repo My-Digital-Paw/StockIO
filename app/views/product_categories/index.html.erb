@@ -1,31 +1,49 @@
-<h1>Listing product_categories</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Parent category</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @product_categories.each do |product_category| %>
-  <tr>
-    <td><%= product_category.name %></td>
-    <td>
-      <% if product_category.parent_category != nil %>
-        <%= product_category.parent_category.name %>
-      <% else %>
-        ---
-      <% end %>
-    </td>
-    <td><%= link_to 'Show', product_category %></td>
-    <td><%= link_to 'Edit', edit_product_category_path(product_category) %></td>
-    <td><%= link_to 'Destroy', product_category, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<% content_for :title do %>
+  Listing Product Categories
 <% end %>
-</table>
 
-<br />
+<div class="grid_4">
+  <div class="box">
+    <h2>Actions</h2>
+    <div class="block">
+      <p><%= link_to 'New Product category', new_product_category_path %></p>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'New Product category', new_product_category_path %>
+<div class="grid_12">
+  <div class="box">
+    <h2>List</h2>
+    <div class="block">
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Parent category</th>
+        <th></th>
+        <th></th>
+      </thead>
+
+      <% counter = 1 %>
+      <% @product_categories.each do |product_category| %>
+        <% if counter % 2 == 1 %>
+          <tr class="odd">
+        <% else %>
+          <tr>
+        <% end %>
+          <td><%= link_to product_category.name, product_category %></td>
+          <td>
+            <% if product_category.parent_category != nil %>
+              <%= link_to product_category.parent_category.name, product_category.parent_category %>
+            <% else %>
+              ---
+            <% end %>
+          </td>
+          <td><%= link_to 'Edit', edit_product_category_path(product_category) %></td>
+          <td><%= link_to 'Destroy', product_category, confirm: 'Are you sure?', method: :delete %></td>
+        </tr>
+        <% counter = counter + 1 %>
+      <% end %>
+    </table>
+    </div>
+  </div>
+</div>

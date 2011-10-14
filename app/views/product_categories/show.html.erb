@@ -1,19 +1,54 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title do %>
+  Product Category
+<% end %>
 
-<p>
-  <b>Name:</b>
-  <%= @product_category.name %>
-</p>
+<div class="grid_4">
+  <div class="box">
+    <h2>Actions</h2>
+    <div class="block">
+      <ul class="menu">
+        <li><%= link_to 'Edit', edit_product_category_path(@product_category) %></li>
+        <li><%= link_to 'Back', product_categories_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Parent category:</b>
-  <% if @product_category.parent_category != nil %>
-    <%= @product_category.parent_category.name %>
-  <% else %>
-    ---
-  <% end %>
-</p>
+<div class="grid_6">
+  <div class="box">
+    <h2>Information</h2>
+    <div class="block">
+      <p id="notice"><%= notice %></p>
 
+      <p>Name:</p>
+      <h3><%= @product_category.name %></h3>
 
-<%= link_to 'Edit', edit_product_category_path(@product_category) %> |
-<%= link_to 'Back', product_categories_path %>
+      <p>Parent category:</p>
+      <h3>
+        <% if @product_category.parent_category != nil %>
+          <%= link_to @product_category.parent_category.name, @product_category.parent_category %>
+        <% else %>
+          ---
+        <% end %>
+      </h3>
+    </div>
+  </div>
+</div>
+
+<div class="grid_6">
+  <div class="box">
+    <h2>Sub-Categories</h2>
+    <div class="block">
+      <% if @product_category.sub_categories.size <= 0 %>
+        <p>No sub-category.</p>
+      <% else %>
+        <ul class="menu">
+        <% @product_category.sub_categories.each do |pc| %>
+          <li><%= link_to pc.name, pc %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -1,5 +1,23 @@
-<h1>New product_category</h1>
+<% content_for :title do %>
+  New Product Category
+<% end %>
 
-<%= render 'form' %>
+<div class="grid_4">
+  <div class="box">
+    <h2>Actions</h2>
+    <div class="block">
+      <ul class="menu">
+        <li><%= link_to 'Back', product_categories_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Back', product_categories_path %>
+<div class="grid_12">
+  <div class="box">
+    <h2>Information</h2>
+    <div class="block">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
