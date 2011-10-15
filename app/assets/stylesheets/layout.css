@@ -327,6 +327,9 @@ fieldset p input {
 fieldset p select {
 	width:99%;
 }
+fieldset p textarea {
+	width:98%;
+}
 fieldset.login p label {
 	float:left;
 	line-height:2em;

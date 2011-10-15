@@ -24,13 +24,13 @@
       <h3><%= @product_category.name %></h3>
 
       <p>Parent category:</p>
-      <h3>
+      <h4>
         <% if @product_category.parent_category != nil %>
           <%= link_to @product_category.parent_category.name, @product_category.parent_category %>
         <% else %>
           ---
         <% end %>
-      </h3>
+      </h4>
     </div>
   </div>
 </div>
@@ -48,6 +48,33 @@
         <% end %>
         </ul>
       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="grid_12 prefix_4">
+  <div class="box">
+    <h2>Products Belonging To This Category</h2>
+    <div class="block">
+    <table>
+      <thead>
+        <th>Code</th>
+        <th>Type</th>
+        <th></th>
+        <th></th>
+      </thead>
+
+      <% @product_category.product.each do |product| %>
+        <tr>
+          <td><%= link_to product.code, product %></td>
+          <td><%= product.product_type %></td>
+          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+          <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
     </div>
   </div>
 </div>

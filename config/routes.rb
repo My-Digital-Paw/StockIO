@@ -1,4 +1,6 @@
 StockIO::Application.routes.draw do
+  resources :products
+
   get "home/index"
 
   resources :product_categories

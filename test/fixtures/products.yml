@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  code: MyString
+  product_cateogy: 
+  type: 
+  description: MyText
+
+two:
+  code: MyString
+  product_cateogy: 
+  type: 
+  description: MyText

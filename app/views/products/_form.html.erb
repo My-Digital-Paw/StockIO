@@ -1,0 +1,34 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <fieldset>
+    <legend>Basic</legend>
+    <p>
+      <label><%= f.label :code %></label>
+      <%= f.text_field :code %>
+    </p>
+    <p>
+      <label><%= f.label :product_category %></label>
+      <%= f.collection_select(:product_category_id, ProductCategory.all, :id, :name) %>
+    </p>
+    <p>
+      <label><%= f.label :product_type %></label>
+      <%= f.select(:product_type, ["Stockable Product", "Non-Stockable Product", "Service"].map { |t| [t, t] }) %>
+    </p>
+    <p>
+      <label><%= f.label :description %></label>
+      <%= f.text_area :description %>
+    </p>
+    <%= f.submit %>
+  </fieldset>
+<% end %>
