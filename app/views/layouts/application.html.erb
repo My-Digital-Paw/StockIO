@@ -1,61 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <title>StockIO</title>
-  <%= stylesheet_link_tag "reset", "text", "960", "layout", "nav" %>
+  <%= javascript_include_tag "jquery", "jquery-ui", "jquery-fluid16" %>
+  <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 </head>
 <body>
-  <div class="container_16">
-    <div class="grid_16">
-      <h1 id="branding">
-        <%= link_to "StockIO", "/" %>
-      </h1>
-    </div>
-    <div class="clear"></div>
-    <div class="grid_16">
-      <ul class="nav main">
-        <li>
-          <%= link_to "Product", "/" %>
-          <ul>
-            <li><%= link_to "Products", products_path %></li>
-            <li><%= link_to "Categories", product_categories_path %></li>
-          </ul>
-        </li>
-        <li>
-          <a href="../../../16/">Fluid 16-column</a>
-          <ul>
-            <li>
-              <a href="../../../16/fluid/mootools/">MooTools</a>
-            </li>
-            <li>
-              <a href="../../../16/fluid/jquery/">jQuery</a>
-            </li>
-            <li>
-              <a href="../../../16/fluid/none/">No Javascript</a>
-            </li>
-          </ul>
-        </li>
-        <li class="secondary">
-          <a href="http://960.gs/" title="960.gs | A CSS grid system developed by Nathan Smith">The 960 Grid System</a>
-        </li>
-      </ul>
-    </div>
-    <div class="clear"></div>
-    <div class="grid_16">
-      <h2 id="page-heading"><%= yield :title %></h2>
-    </div>
-    <div class="clear"></div>
-    <%= yield %>
-    <div class="clear"></div>
-    <div class="grid_16" id="site_info">
-        <div class="box">
-          <p>StockIO, created by <%= link_to "PAW", "/" %>, with inspiration from <%= link_to "inFlow Inventory Software", "http://www.inflowinventory.com/" %> by <%= link_to "Archon System Ic.", "http://www.archonsystems.com/" %>. Released under the 
-    <a href="../../../licenses/GPL_license.txt">GPL</a> / <a href="../../../licenses/MIT_license.txt">MIT</a> <a href="../../../README.txt">Licenses</a>.</p>
-        </div>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <%= javascript_include_tag "jquery", "jquery-ui", "jquery-fluid16" %>
+  <h1><%= link_to "StockIO", /" %></h1>
+  <ul>
+    <li><%= link_to "Products", products_path %></li>
+    <li><%= link_to "Categories", product_categories_path %></li>
+  </ul>
+  <h2><%= yield :title %></h2>
+  <%= yield %>
 </body>
 </html>
