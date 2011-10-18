@@ -2,35 +2,20 @@
   Product
 <% end %>
 
-<div class="grid_4">
-  <div class="box">
-    <h2>Actions</h2>
-    <div class="block">
-      <ul class="menu">
-        <li><%= link_to 'Edit', edit_product_path(@product) %></li>
-        <li><%= link_to 'Back', products_path %></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<p><%= link_to 'Edit', edit_product_path(@product) %> | 
+<%= link_to 'Back', products_path %></p>
 
-<div class="grid_6">
-  <div class="box">
-    <h2>Information</h2>
-    <div class="block">
-      <p id="notice"><%= notice %></p>
+<h2>Information</h2>
+<p id="notice"><%= notice %></p>
 
-      <p>Code:</p>
-      <h3><%= @product.code %></h3>
+<p>Code:</p>
+<h3><%= @product.code %></h3>
 
-      <p>Category:</p>
-      <h4><%= link_to @product.product_category.name, @product.product_category %></h4>
-      
-      <p>Type:</p>
-      <h4><%= @product.product_type %></h4>
-      
-      <p>Description:</p>
-      <p><%= @product.description %></p>
-    </div>
-  </div>
-</div>
+<p>Category:</p>
+<h4><%= link_to @product.product_category.name, @product.product_category %></h4>
+
+<p>Type:</p>
+<h4><%= @product.product_type %></h4>
+
+<p>Description:</p>
+<p><%= @product.description %></p>
