@@ -50,6 +50,9 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.1)
+    lessframework-rails (0.0.1)
+      railties (~> 3.0)
+      thor (~> 0.14)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -114,6 +117,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.1.0)
   jquery-rails
+  lessframework-rails
   rails (= 3.1.0)
   sass-rails (~> 3.1.0)
   sqlite3
