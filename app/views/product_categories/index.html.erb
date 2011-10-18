@@ -2,48 +2,34 @@
   Listing Product Categories
 <% end %>
 
-<div class="grid_4">
-  <div class="box">
-    <h2>Actions</h2>
-    <div class="block">
-      <p><%= link_to 'New Product category', new_product_category_path %></p>
-    </div>
-  </div>
-</div>
+<p><%= link_to 'New Product category', new_product_category_path %></p>
 
-<div class="grid_12">
-  <div class="box">
-    <h2>List</h2>
-    <div class="block">
-    <table>
-      <thead>
-        <th>Name</th>
-        <th>Parent category</th>
-        <th></th>
-        <th></th>
-      </thead>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Parent category</th>
+    <th></th>
+    <th></th>
+  </thead>
 
-      <% counter = 1 %>
-      <% @product_categories.each do |product_category| %>
-        <% if counter % 2 == 1 %>
-          <tr class="odd">
+  <% counter = 1 %>
+  <% @product_categories.each do |product_category| %>
+    <% if counter % 2 == 1 %>
+      <tr class="odd">
+    <% else %>
+      <tr>
+    <% end %>
+      <td><%= link_to product_category.name, product_category %></td>
+      <td>
+        <% if product_category.parent_category != nil %>
+          <%= link_to product_category.parent_category.name, product_category.parent_category %>
         <% else %>
-          <tr>
+          ---
         <% end %>
-          <td><%= link_to product_category.name, product_category %></td>
-          <td>
-            <% if product_category.parent_category != nil %>
-              <%= link_to product_category.parent_category.name, product_category.parent_category %>
-            <% else %>
-              ---
-            <% end %>
-          </td>
-          <td><%= link_to 'Edit', edit_product_category_path(product_category) %></td>
-          <td><%= link_to 'Destroy', product_category, confirm: 'Are you sure?', method: :delete %></td>
-        </tr>
-        <% counter = counter + 1 %>
-      <% end %>
-    </table>
-    </div>
-  </div>
-</div>
+      </td>
+      <td><%= link_to 'Edit', edit_product_category_path(product_category) %></td>
+      <td><%= link_to 'Destroy', product_category, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+    <% counter = counter + 1 %>
+  <% end %>
+</table>

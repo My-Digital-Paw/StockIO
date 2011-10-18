@@ -2,80 +2,51 @@
   Product Category
 <% end %>
 
-<div class="grid_4">
-  <div class="box">
-    <h2>Actions</h2>
-    <div class="block">
-      <ul class="menu">
-        <li><%= link_to 'Edit', edit_product_category_path(@product_category) %></li>
-        <li><%= link_to 'Back', product_categories_path %></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<p><%= link_to 'Edit', edit_product_category_path(@product_category) %> | 
+<%= link_to 'Back', product_categories_path %></p>
 
-<div class="grid_6">
-  <div class="box">
-    <h2>Information</h2>
-    <div class="block">
-      <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-      <p>Name:</p>
-      <h3><%= @product_category.name %></h3>
+<p>Name:</p>
+<h3><%= @product_category.name %></h3>
 
-      <p>Parent category:</p>
-      <h4>
-        <% if @product_category.parent_category != nil %>
-          <%= link_to @product_category.parent_category.name, @product_category.parent_category %>
-        <% else %>
-          ---
-        <% end %>
-      </h4>
-    </div>
-  </div>
-</div>
+<p>Parent category:</p>
+<h4>
+  <% if @product_category.parent_category != nil %>
+    <%= link_to @product_category.parent_category.name, @product_category.parent_category %>
+  <% else %>
+    ---
+  <% end %>
+</h4>
 
-<div class="grid_6">
-  <div class="box">
-    <h2>Sub-Categories</h2>
-    <div class="block">
-      <% if @product_category.sub_categories.size <= 0 %>
-        <p>No sub-category.</p>
-      <% else %>
-        <ul class="menu">
-        <% @product_category.sub_categories.each do |pc| %>
-          <li><%= link_to pc.name, pc %></li>
-        <% end %>
-        </ul>
-      <% end %>
-    </div>
-  </div>
-</div>
+<h2>Sub-Categories</h2>
+<% if @product_category.sub_categories.size <= 0 %>
+  <p>No sub-category.</p>
+<% else %>
+  <ul class="menu">
+  <% @product_category.sub_categories.each do |pc| %>
+    <li><%= link_to pc.name, pc %></li>
+  <% end %>
+  </ul>
+<% end %>
 
-<div class="clear"></div>
+<h2>Products Belonging To This Category</h2>
+<table>
+  <thead>
+    <th>Code</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+  </thead>
 
-<div class="grid_12 prefix_4">
-  <div class="box">
-    <h2>Products Belonging To This Category</h2>
-    <div class="block">
-    <table>
-      <thead>
-        <th>Code</th>
-        <th>Type</th>
-        <th></th>
-        <th></th>
-      </thead>
+  <% @product_category.product.each do |product| %>
+    <tr>
+      <td><%= link_to product.code, product %></td>
+      <td><%= product.product_type %></td>
+      <td><%= link_to 'Edit', edit_product_path(product) %></td>
+      <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
 
-      <% @product_category.product.each do |product| %>
-        <tr>
-          <td><%= link_to product.code, product %></td>
-          <td><%= product.product_type %></td>
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
-          <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
-        </tr>
-      <% end %>
-    </table>
-    </div>
-  </div>
-</div>
 
