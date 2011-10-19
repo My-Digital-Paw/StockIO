@@ -31,6 +31,3 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
-
-# use the less css framework
-gem 'lessframework-rails'
