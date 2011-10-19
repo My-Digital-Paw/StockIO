@@ -32,15 +32,14 @@ body {
 }
 
 a {
-  color: #000;
+  color: blue;
   
   &:visited {
-    color: #666;
+    color: purple;
   }
   
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: red;
   }
 }
 
