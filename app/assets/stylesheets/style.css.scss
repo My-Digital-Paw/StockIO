@@ -1,0 +1,103 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+body {
+  font-family: 'Istok Web', san-serif;
+}
+
+#logo {
+  background-color: #c0c0c0;
+  border-bottom: 2px solid black;
+  
+  h1 {
+    font-family: 'Changa One', sans-serif;
+    font-size: 3em;
+    
+    a {
+      text-decoration: none;
+      color: black;
+      
+      &:visited {
+        color: black;
+      }
+      
+      &:hover {
+        color: lighten(black, 20%);
+        background-color: transparent;
+      }
+    }
+  }
+  
+}
+
+a {
+  color: #000;
+  
+  &:visited {
+    color: #666;
+  }
+  
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+ul#nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 150px;
+  z-index: 5;
+  
+  li {
+    position: relative;
+    
+    a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      background: black;
+      padding: 5px;
+      border: 1px solid lighten(black, 50%);
+      border-bottom: 0;
+    }
+    
+    ul {
+      position: absolute;
+      left: 149px;
+      top: 0;
+      display: none;
+    }
+    
+    &:hover ul { display: block; }
+  }
+}
+	
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+		
+	}
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}
