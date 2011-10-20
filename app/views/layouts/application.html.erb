@@ -24,13 +24,20 @@
       
       <div class="sevencol last">
         <ul id="nav">
-          <li><%= link_to "Home", "/" %></li>
+          <li>
+            <%= link_to "/" do %>
+              <%= image_tag "32/house.png" %>
+            <% end %>
+          </li>
           
           <li>
-            <%= link_to "Products", "/" %>
+            <%= link_to products_path do %>
+              <%= image_tag "32/package.png" %>
+            <% end %>
             <ul>
-              <li><%= link_to "Products", products_path %></li>
-              <li><%= link_to "Categories", product_categories_path %></li>
+              <li>
+                <%= link_to "Product Categories", product_categories_path %>
+              </li>
             </ul>
           </li>
           
@@ -41,16 +48,12 @@
   
   <div class="container">
     <div class="row">
-      <div class="twelvecol last">
+      <div class="twelvecol last" id="ptitle">
         <h2><%= yield :title %></h2>
       </div>
     </div>
     
-    <div class="row">
-      <div class="twelvecol last">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
   </div>
 </body>
 </html>
