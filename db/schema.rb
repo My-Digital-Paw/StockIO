@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015001320) do
+ActiveRecord::Schema.define(:version => 20111022075209) do
 
   create_table "product_categories", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(:version => 20111015001320) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
 end

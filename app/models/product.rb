@@ -4,4 +4,6 @@ class Product < ActiveRecord::Base
   validates :product_type, :inclusion => { :in => ["Stockable Product", "Non-Stockable Product", "Service"] }
   
   belongs_to :product_category
+  
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 end

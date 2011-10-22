@@ -25,7 +25,7 @@
 </div>
 
 <div class="row">
-  <div class="sixcol">
+  <div class="fourcol">
     <p>Code:</p>
     <h3><%= @product.code %></h3>
 
@@ -35,8 +35,12 @@
     <p>Type:</p>
     <h4><%= @product.product_type %></h4>
   </div>
-  <div class="sixcol last">
+  <div class="fourcol">
     <p>Description:</p>
     <p><%= @product.description %></p>
+  </div>
+  <div class="fourcol last">
+    <p>Picture:</p>
+    <p><%= image_tag @product.picture.url %></p>
   </div>
 </div>
