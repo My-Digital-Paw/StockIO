@@ -7,7 +7,7 @@
     <h2>List</h2>
   </div>
   <div class="sevencol last">
-    <p style="float: right;">
+    <p id="actionbar">
       <%= link_to new_product_path do %>
         <%= image_tag "16/page_add.png" %>
       <% end %>
@@ -23,17 +23,28 @@
         <th>Category</th>
         <th>Type</th>
         <th></th>
-        <th></th>
       </thead>
 
+      <% counter = 1 %>
       <% @products.each do |product| %>
-        <tr>
+        <% if counter % 2 == 0 %>
+          <tr class="even">
+        <% else %>
+          <tr>
+        <% end %>
           <td><%= link_to product.code, product %></td>
           <td><%= link_to product.product_category.name, product.product_category %></td>
           <td><%= product.product_type %></td>
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
-          <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+          <td>
+            <%= link_to edit_product_path(product) do %>
+              <%= image_tag "16/page_edit.png" %>
+            <% end %>
+            <%= link_to product, confirm: 'Are you sure?', method: :delete do %>
+              <%= image_tag "16/page_delete.png" %>
+            <% end %>
+          </td>
         </tr>
+        <% counter = counter + 1; %>
       <% end %>
     </table>
   </div>

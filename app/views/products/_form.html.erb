@@ -1,6 +1,6 @@
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
+<% if @product.errors.any? %>
+  <div class="row">
+    <div id="error_explanation" class="twelvecol last">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
@@ -9,26 +9,40 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  </div>
+<% end %>
+
+<%= form_for(@product) do |f| %>
+  <div class="row">
+    <div class="sixcol">
+      <fieldset>
+        <legend>Basic</legend>
+        <p>
+          <%= f.label :code %>
+          <%= f.text_field :code %>
+        </p>
+        <p>
+          <%= f.label :product_category %>
+          <%= f.collection_select(:product_category_id, ProductCategory.all, :id, :name) %>
+        </p>
+        <p>
+          <%= f.label :product_type %>
+          <%= f.select(:product_type, ["Stockable Product", "Non-Stockable Product", "Service"].map { |t| [t, t] }) %>
+        </p>
+        <p>
+          <%= f.label :description %>
+          <%= f.text_area :description %>
+        </p>
+      </fieldset>
+    </div>
+    
+    <div class="sixcol last">
+    </div>
+  </div>
   
-  <fieldset>
-    <legend>Basic</legend>
-    <p>
-      <label><%= f.label :code %></label>
-      <%= f.text_field :code %>
-    </p>
-    <p>
-      <label><%= f.label :product_category %></label>
-      <%= f.collection_select(:product_category_id, ProductCategory.all, :id, :name) %>
-    </p>
-    <p>
-      <label><%= f.label :product_type %></label>
-      <%= f.select(:product_type, ["Stockable Product", "Non-Stockable Product", "Service"].map { |t| [t, t] }) %>
-    </p>
-    <p>
-      <label><%= f.label :description %></label>
-      <%= f.text_area :description %>
-    </p>
-    <%= f.submit %>
-  </fieldset>
+  <div class="row">
+    <div class="twelvecol last">
+      <%= f.submit %>
+    </div>
+  </div>
 <% end %>

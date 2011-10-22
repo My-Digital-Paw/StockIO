@@ -2,20 +2,41 @@
   Product
 <% end %>
 
-<p><%= link_to 'Edit', edit_product_path(@product) %> | 
-<%= link_to 'Back', products_path %></p>
+<div class="row">
+  <div class="twelvecol last">
+    <p id="notice"><%= notice %></p>
+  </div>
+</div>
 
-<h2>Information</h2>
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="fivecol">
+    <h2>Information</h2>
+  </div>
+  <div class="sevencol last">
+    <p id="actionbar">
+      <%= link_to products_path do %>
+        <%= image_tag "16/document_page_previous.png" %>
+      <% end %>
+      <%= link_to edit_product_path(@product) do %>
+        <%= image_tag "16/page_edit.png" %>
+      <% end %>
+    </p>
+  </div>
+</div>
 
-<p>Code:</p>
-<h3><%= @product.code %></h3>
+<div class="row">
+  <div class="sixcol">
+    <p>Code:</p>
+    <h3><%= @product.code %></h3>
 
-<p>Category:</p>
-<h4><%= link_to @product.product_category.name, @product.product_category %></h4>
+    <p>Category:</p>
+    <h4><%= link_to @product.product_category.name, @product.product_category %></h4>
 
-<p>Type:</p>
-<h4><%= @product.product_type %></h4>
-
-<p>Description:</p>
-<p><%= @product.description %></p>
+    <p>Type:</p>
+    <h4><%= @product.product_type %></h4>
+  </div>
+  <div class="sixcol last">
+    <p>Description:</p>
+    <p><%= @product.description %></p>
+  </div>
+</div>
