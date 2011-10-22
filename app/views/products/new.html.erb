@@ -2,6 +2,14 @@
   New Product
 <% end %>
 
-<p><%= link_to 'Back', products_path %></p>
+<div class="row">
+  <div class="twelvecol last">
+    <p id="actionbar">
+      <%= link_to products_path do %>
+        <%= image_tag "16/document_page_previous.png" %>
+      <% end %>
+    </p>
+  </div>
+</div>
 
 <%= render 'form' %>

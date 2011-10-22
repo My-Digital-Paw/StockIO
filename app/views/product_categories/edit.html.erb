@@ -2,8 +2,21 @@
   Editing Product Category
 <% end %>
 
-<p><%= link_to 'Show', @product_category %> | 
-<%= link_to 'Back', product_categories_path %></p>
+<div class="row">
+  <div class="fivecol">
+    <h2>Information</h2>
+  </div>
+  <div class="sevencol last">
+    <p id="actionbar">
+      <%= link_to product_categories_path do %>
+        <%= image_tag "16/document_page_previous.png" %>
+      <% end %>
+      <%= link_to @product_category do %>
+        <%= image_tag "16/page.png" %>
+      <% end %>
+    </p>
+  </div>
+</div>
 
 <%= render 'form' %>
 

@@ -1,27 +1,37 @@
 <%= form_for(@product_category) do |f| %>
   <% if @product_category.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@product_category.errors.count, "error") %> prohibited this product category from being saved:</h3>
+    <div class="row">
+      <div id="error_explanation" class="twelvecol last">
+        <h3><%= pluralize(@product_category.errors.count, "error") %> prohibited this product category from being saved:</h3>
 
-      <ul>
-      <% @product_category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @product_category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <fieldset>
-    <legend>Basic</legend>
-    <p>
-      <label><%= f.label :name %></label>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <label><%= f.label :parent_category %></label>
-      <%= f.collection_select(:parent_category_id, ProductCategory.find_all_by_parent_category_id(nil), :id, :name, { :include_blank => "---" }) %>
-      <!--<%= f.text_field :parent_category %>-->
-    </p>
-    <%= f.submit %>
-  </fieldset>
+  <div class="row">
+    <div class="twelvecol last">
+      <fieldset>
+        <legend>Basic</legend>
+        <p>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </p>
+        <p>
+          <%= f.label :parent_category %>
+          <%= f.collection_select(:parent_category_id, ProductCategory.find_all_by_parent_category_id(nil), :id, :name, { :include_blank => "---" }) %>
+        </p>
+      </fieldset>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="twelvecol last">
+      <%= f.submit %>
+    </div>
+  </div>
 <% end %>

@@ -2,34 +2,54 @@
   Listing Product Categories
 <% end %>
 
-<p><%= link_to 'New Product category', new_product_category_path %></p>
+<div class="row">
+  <div class="fivecol">
+    <h2>List</h2>
+  </div>
+  <div class="sevencol last">
+    <p id="actionbar">
+      <%= link_to new_product_category_path do %>
+        <%= image_tag "16/page_add.png" %>
+      <% end %>
+    </p>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <th>Name</th>
-    <th>Parent category</th>
-    <th></th>
-    <th></th>
-  </thead>
+<div class="row">
+  <div class="twelvecol last">
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Parent category</th>
+        <th></th>
+      </thead>
 
-  <% counter = 1 %>
-  <% @product_categories.each do |product_category| %>
-    <% if counter % 2 == 1 %>
-      <tr class="odd">
-    <% else %>
-      <tr>
-    <% end %>
-      <td><%= link_to product_category.name, product_category %></td>
-      <td>
-        <% if product_category.parent_category != nil %>
-          <%= link_to product_category.parent_category.name, product_category.parent_category %>
+      <% counter = 1 %>
+      <% @product_categories.each do |product_category| %>
+        <% if counter % 2 == 0 %>
+          <tr class="even">
         <% else %>
-          ---
+          <tr>
         <% end %>
-      </td>
-      <td><%= link_to 'Edit', edit_product_category_path(product_category) %></td>
-      <td><%= link_to 'Destroy', product_category, confirm: 'Are you sure?', method: :delete %></td>
-    </tr>
-    <% counter = counter + 1 %>
-  <% end %>
-</table>
+          <td><%= link_to product_category.name, product_category %></td>
+          <td>
+            <% if product_category.parent_category != nil %>
+              <%= link_to product_category.parent_category.name, product_category.parent_category %>
+            <% else %>
+              ---
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_product_category_path(product_category) do %>
+              <%= image_tag "16/page_edit.png" %>
+            <% end %>
+            <%= link_to product_category, confirm: 'Are you sure?', method: :delete do %>
+              <%= image_tag "16/page_delete.png" %>
+            <% end %>
+          </td>
+        </tr>
+        <% counter = counter + 1; %>
+      <% end %>
+    </table>
+  </div>
+</div>

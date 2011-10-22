@@ -2,51 +2,78 @@
   Product Category
 <% end %>
 
-<p><%= link_to 'Edit', edit_product_category_path(@product_category) %> | 
-<%= link_to 'Back', product_categories_path %></p>
+<div class="row">
+  <div class="twelvecol last">
+    <p id="notice"><%= notice %></p>
+  </div>
+</div>
 
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="fivecol">
+    <h2>Information</h2>
+  </div>
+  <div class="sevencol last">
+    <p id="actionbar">
+      <%= link_to product_categories_path do %>
+        <%= image_tag "16/document_page_previous.png" %>
+      <% end %>
+      <%= link_to edit_product_category_path(@product_category) do %>
+        <%= image_tag "16/page_edit.png" %>
+      <% end %>
+    </p>
+  </div>
+</div>
 
-<p>Name:</p>
-<h3><%= @product_category.name %></h3>
+<div class="row">
+  <div class="fourcol">
+    <p>Name:</p>
+    <h3><%= @product_category.name %></h3>
 
-<p>Parent category:</p>
-<h4>
-  <% if @product_category.parent_category != nil %>
-    <%= link_to @product_category.parent_category.name, @product_category.parent_category %>
-  <% else %>
-    ---
-  <% end %>
-</h4>
+    <p>Parent Category:</p>
+    <h4>
+      <% if @product_category.parent_category != nil %>
+        <%= link_to @product_category.parent_category.name, @product_category.parent_category %>
+      <% else %>
+        ---
+      <% end %>
+    </h4>
 
-<h2>Sub-Categories</h2>
-<% if @product_category.sub_categories.size <= 0 %>
-  <p>No sub-category.</p>
-<% else %>
-  <ul class="menu">
-  <% @product_category.sub_categories.each do |pc| %>
-    <li><%= link_to pc.name, pc %></li>
-  <% end %>
-  </ul>
-<% end %>
+    <p>Sub-Categories:</p>
+    <% if @product_category.sub_categories.size <= 0 %>
+      <p>No sub-category.</p>
+    <% else %>
+      <ul>
+      <% @product_category.sub_categories.each do |pc| %>
+        <li><%= link_to pc.name, pc %></li>
+      <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <div class="eightcol last">
+    <p>Products Belonging To This Category</p>
+    <table>
+      <thead>
+        <th>Code</th>
+        <th>Type</th>
+        <th></th>
+      </thead>
 
-<h2>Products Belonging To This Category</h2>
-<table>
-  <thead>
-    <th>Code</th>
-    <th>Type</th>
-    <th></th>
-    <th></th>
-  </thead>
-
-  <% @product_category.product.each do |product| %>
-    <tr>
-      <td><%= link_to product.code, product %></td>
-      <td><%= product.product_type %></td>
-      <td><%= link_to 'Edit', edit_product_path(product) %></td>
-      <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
-    </tr>
-  <% end %>
-</table>
+      <% @product_category.product.each do |product| %>
+        <tr>
+          <td><%= link_to product.code, product %></td>
+          <td><%= product.product_type %></td>
+          <td>
+            <%= link_to edit_product_path(product) do %>
+              <%= image_tag "16/page_edit.png" %>
+            <% end %>
+            <%= link_to product, confirm: 'Are you sure?', method: :delete do %>
+              <%= image_tag "16/page_delete.png" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
 
 
