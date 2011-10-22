@@ -124,6 +124,8 @@ form {
   }
   
   input, select, textarea { width: 100%; }
+  
+  input[type=submit] { width: auto; }
 }
 	
 
