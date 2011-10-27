@@ -1,0 +1,23 @@
+body {
+  font-family: 'Cantarell', san-serif;
+}
+
+#logoBar {
+  background: lightgrey;
+  border-bottom: 3px solid black;
+  padding-top: 10px;
+  
+  h1 { font-size: 1em; }
+  a { font-weight: bold; }
+  p {
+    margin: 0;
+    font-size: 1em;
+    text-align: right;
+  }
+}
+
+#pageTitle {
+  h2 {
+    border-bottom: 1px solid gray;
+  }
+}

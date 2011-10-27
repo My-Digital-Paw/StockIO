@@ -15,39 +15,24 @@
 </head>
 
 <body lang="en">
-  <div class="container" id="logo">
+  <div class="container" id="logoBar">
     <div class="row">
-      <div class="fivecol">
+      <div class="five columns">
         <h1><%= link_to "StockIO", "/" %></h1>
       </div>
       
-      <div class="sevencol last">
-        <ul id="nav">
-          <li>
-            <%= link_to "/" do %>
-              <%= image_tag "32/house.png" %>
-            <% end %>
-          </li>
-          
-          <li>
-            <%= link_to products_path do %>
-              <%= image_tag "32/package.png" %>
-            <% end %>
-            <ul>
-              <li>
-                <%= link_to "Product Categories", product_categories_path %>
-              </li>
-            </ul>
-          </li>
-          
-        </ul>
+      <div class="seven columns">
+        <p>
+          <%= link_to "Home", "/" %> | 
+          <%= link_to "Products", products_path %>
+        </p>
       </div>
     </div>
   </div>
   
   <div class="container">
     <div class="row">
-      <div class="twelvecol last" id="ptitle">
+      <div class="twelve columns" id="pageTitle">
         <h2><%= yield :title %></h2>
       </div>
     </div>
