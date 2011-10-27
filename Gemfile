@@ -34,3 +34,6 @@ end
 
 # Paperclip (file upload)
 gem "paperclip", "~> 2.4"
+
+# Foundation
+gem "zurb-foundation"
