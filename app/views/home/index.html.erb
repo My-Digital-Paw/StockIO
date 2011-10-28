@@ -9,7 +9,16 @@
 </div>
 
 <div class="row">
-  <div class="three columns box">
+  <div class="three columns">
+    <h3>Login</h3>
+    <p>
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </p>
+  </div>
+  
+  <div class="three columns">
     <h3>Product Management</h3>
     <ul>
       <li><%= link_to "Products", products_path %></li>
