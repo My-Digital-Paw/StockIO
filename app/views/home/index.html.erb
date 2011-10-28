@@ -1,23 +1,18 @@
 <% content_for :title do %>
-  Home
+  <% if signed_in? %>
+    Welcome back!
+  <% else %>
+    Hello!
+  <% end %>
 <% end %>
 
 <div class="row">
   <div class="twelve columns">
-    <p>Welcome, home!</p>
+    <p></p>
   </div>
 </div>
 
-<div class="row">
-  <div class="three columns">
-    <h3>Login</h3>
-    <p>
-      <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
-      <% end %>
-    </p>
-  </div>
-  
+<div class="row">  
   <div class="three columns">
     <h3>Product Management</h3>
     <ul>

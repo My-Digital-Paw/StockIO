@@ -15,6 +15,10 @@
 </head>
 
 <body lang="en">
+  <% flash.each do |key, value| %>
+    <div class="flash_<%= key %>"><%= value %></div>
+  <% end %>  
+  
   <div class="container" id="logoBar">
     <div class="row">
       <div class="five columns">
@@ -22,10 +26,18 @@
       </div>
       
       <div class="seven columns">
-        <p>
-          <%= link_to "Home", "/" %> | 
-          <%= link_to "Products", products_path %>
-        </p>
+        <% if signed_in? %>
+          <p>
+            <%= current_user.email %>
+            <%= link_to "Home", "/" %> | 
+            <%= link_to "Products", products_path %> | 
+            <%= link_to "Sign out", sign_out_path, :method => :delete %>
+          </p>
+        <% else %>
+          <p>
+            <%= link_to "Sign in", sign_in_path %>
+          </p>
+        <% end %>
       </div>
     </div>
   </div>
