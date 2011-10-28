@@ -1,4 +1,6 @@
 class ProductCategoriesController < ApplicationController
+  before_filter :authorize
+
   # GET /product_categories
   # GET /product_categories.json
   def index
