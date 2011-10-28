@@ -30,4 +30,7 @@ StockIO::Application.configure do
   
   # Paperclip (file upload) setting
   Paperclip.options[:command_path] = "/usr/bin"
+  
+  # Clearance (user authentication) setting
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

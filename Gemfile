@@ -35,5 +35,8 @@ end
 # Paperclip (file upload)
 gem "paperclip", "~> 2.4"
 
-# Foundation
+# Foundation (css framework)
 gem "zurb-foundation"
+
+# Clearance (user authentication)
+gem "clearance"
