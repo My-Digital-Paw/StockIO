@@ -3,17 +3,13 @@
 <% end %>
 
 <div class="row">
-  <div class="fivecol">
+  <div class="five columns">
     <h2>Information</h2>
   </div>
-  <div class="sevencol last">
-    <p id="actionbar">
-      <%= link_to products_path do %>
-        <%= image_tag "16/document_page_previous.png" %>
-      <% end %>
-      <%= link_to @product do %>
-        <%= image_tag "16/page.png" %>
-      <% end %>
+  <div class="seven columns">
+    <p id="actionBar">
+      <%= link_to "Back", products_path %> | 
+      <%= link_to "Show", @product %>
     </p>
   </div>
 </div>
