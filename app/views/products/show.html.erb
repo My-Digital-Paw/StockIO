@@ -3,29 +3,25 @@
 <% end %>
 
 <div class="row">
-  <div class="twelvecol last">
+  <div class="twelve columns">
     <p id="notice"><%= notice %></p>
   </div>
 </div>
 
 <div class="row">
-  <div class="fivecol">
+  <div class="five columns">
     <h2>Information</h2>
   </div>
-  <div class="sevencol last">
-    <p id="actionbar">
-      <%= link_to products_path do %>
-        <%= image_tag "16/document_page_previous.png" %>
-      <% end %>
-      <%= link_to edit_product_path(@product) do %>
-        <%= image_tag "16/page_edit.png" %>
-      <% end %>
+  <div class="seven columns">
+    <p id="actionBar">
+      <%= link_to "Back", products_path %> | 
+      <%= link_to "Edit", edit_product_path(@product) %>
     </p>
   </div>
 </div>
 
 <div class="row">
-  <div class="fourcol">
+  <div class="four columns">
     <p>Code:</p>
     <h3><%= @product.code %></h3>
 
@@ -35,12 +31,19 @@
     <p>Type:</p>
     <h4><%= @product.product_type %></h4>
   </div>
-  <div class="fourcol">
+  <div class="four columns">
     <p>Description:</p>
     <p><%= @product.description %></p>
   </div>
-  <div class="fourcol last">
+  <div class="four columns">
     <p>Picture:</p>
     <p><%= image_tag @product.picture.url %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="four columns">
+    <p>Price:</p>
+    <h4><%= @product.price %></h4>
   </div>
 </div>

@@ -14,18 +14,13 @@
 
 <%= form_for(@product) do |f| %>
   <div class="row">
-    <div class="sixcol">
+    <div class="six columns">
       <fieldset>
-        <legend>Basic</legend>
-        <p>
+        <h5>Basic</h5>
           <%= f.label :code %>
           <%= f.text_field :code %>
-        </p>
-        <p>
           <%= f.label :product_category %>
           <%= f.collection_select(:product_category_id, ProductCategory.all, :id, :name) %>
-        </p>
-        <p>
           <%= f.label :product_type %>
           <%= f.select(:product_type, ["Stockable Product", "Non-Stockable Product", "Service"].map { |t| [t, t] }) %>
         </p>
@@ -36,19 +31,27 @@
       </fieldset>
     </div>
     
-    <div class="sixcol last">
+    <div class="six columns">
       <fieldset>
-        <legend>Picture</legend>
-        <p>
-          <%= f.label :picture %>
-          <%= f.file_field :picture %>
-        </p>
+        <h5>Picture</h5>
+        <%= f.label :picture %>
+        <%= f.file_field :picture %>
       </fieldset>
     </div>
   </div>
   
   <div class="row">
-    <div class="twelvecol last">
+    <div class="six columns">
+      <fieldset>
+        <h5>Price</h5>
+        <%= f.label :price %>
+        <%= f.text_field :price %>
+      </fieldset>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="twelve columns">
       <%= f.submit %>
     </div>
   </div>

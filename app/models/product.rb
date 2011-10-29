@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   validates :code, :presence => true, :uniqueness => true
   validates :product_category_id, :presence => true
   validates :product_type, :inclusion => { :in => ["Stockable Product", "Non-Stockable Product", "Service"] }
+  validates :price, :presence => true
   
   belongs_to :product_category
   

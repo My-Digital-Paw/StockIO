@@ -22,7 +22,6 @@
         <th></th>
       </thead>
 
-      <% counter = 1 %>
       <% @product_categories.each do |product_category| %>
         <tr>
           <td><%= link_to product_category.name, product_category %></td>
@@ -38,7 +37,6 @@
             <%= link_to "Delete", product_category, confirm: 'Are you sure?', method: :delete %>
           </td>
         </tr>
-        <% counter = counter + 1; %>
       <% end %>
     </table>
   </div>
